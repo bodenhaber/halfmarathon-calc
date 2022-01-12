@@ -5,7 +5,7 @@
 /* calculates weekly mileage */
 int calculate_weekly(int weeks, int current){
 
-    if((weeks <= 3) && (current <= 10)){
+    if((weeks <= 6) && (current <= 10)){
       printf("\n");
       printf("We suggest you train for a half-marathon with more time.");
       printf("\n");
@@ -16,10 +16,16 @@ int calculate_weekly(int weeks, int current){
       printf("Keep doing what you are doing. You are ready for a half-marathon!\n");
     }
 
-    
-    printf("\n");
-    printf("That seems like an acheivable goal! Heres your plan: \n");
-    printf("\n");
+    if(weeks < 10){
+      printf("\n");
+      printf("We reccomend you train with more time, so you don't risk injury. Here would be your weekly plan though: \n");
+      printf("\n");
+    }else{
+
+      printf("\n");
+      printf("That seems like an acheivable goal! Heres your weekly plan: \n");
+      printf("\n");
+    }
 
     if ((current >= 10) && (current < 20)){
       int i = 1;
@@ -31,6 +37,9 @@ int calculate_weekly(int weeks, int current){
       int sa = 5;
       int sun = 2;
 
+      int last = weeks-1;
+      int before_last = weeks-2;
+
       int miles = 0;
       for(i = 1; i <= weeks; i+=1){
         printf("Monday: %d Tuesday: %d Wednesday: %d Thursday: %d Friday: %d Saturday: %d Sunday: %d\n", m, t, w, th, f, sa, sun);
@@ -38,11 +47,11 @@ int calculate_weekly(int weeks, int current){
         printf("Week %d Total Mileage: %d miles\n", i, miles);
         printf("\n");
 
-        if(i == 9){
+        if(i == last){
           sa = 13;
           sun = 0;
         }
-        else if(i == 8){
+        else if(i == before_last){
           sa = 5;
         }else{
           sa+=1;
