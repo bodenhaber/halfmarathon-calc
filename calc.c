@@ -11,6 +11,12 @@ int calculate_weekly(int weeks, int current){
       printf("\n");
       return 1;
     }
+
+    if(current >= 30){
+      printf("Keep doing what you are doing. You are ready for a half-marathon!\n");
+    }
+
+    
     printf("\n");
     printf("That seems like an acheivable goal! Heres your plan: \n");
     printf("\n");
@@ -34,11 +40,18 @@ int calculate_weekly(int weeks, int current){
 
         if(i == 9){
           sa = 13;
+          sun = 0;
         }
         else if(i == 8){
           sa = 5;
         }else{
           sa+=1;
+        }
+
+        if((i > 2) && (i < 7)){
+          sun = 3;
+        }else if(i != 9){
+          sun = 2;
         }
 
         if( (i%2 ==1) && (i != 1)){
@@ -61,13 +74,7 @@ int calculate_weekly(int weeks, int current){
 
     }
 
-
-
-
-
-
 }
-
 
 
 
